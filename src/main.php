@@ -18,7 +18,7 @@ try {
     $traverser->addVisitor(new NodeVisitor);
     $traverser->traverse($stmts);
     // Output
-    // $prettyPrinter = new PhpParser\PrettyPrinter\Standard();
+    // $prettyPrinter = new PhpParser\P../vendor/autoload.phprettyPrinter\Standard();
     // echo $prettyPrinter->prettyPrintFile($stmts);
 } catch(Error $e) {
     print($e->getMessage());

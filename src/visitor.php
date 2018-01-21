@@ -8,5 +8,8 @@ class NodeVisitor extends NodeVisitorAbstract {
             // $node->value = 'hello';
             print($node->value);
         }
+        if($node instanceof Function_) {
+            print("Function!!!");
+        }
     }
 }
