@@ -4,12 +4,8 @@ use PhpParser\NodeVisitorAbstract;
 
 class NodeVisitor extends NodeVisitorAbstract {
     public function leaveNode(Node $node) {
-        if($node instanceof Node\Scalar\String_) {
-            // $node->value = 'hello';
-            print($node->value);
-        }
-        if($node instanceof Function_) {
-            print("Function!!!");
-        }
+        print($node->getLine());
+        print("#" . $node->getType() . " > " . $node->getSubNodeNames());
+        print("\n");
     }
 }
