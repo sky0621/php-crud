@@ -4,6 +4,8 @@ require 'visitor.php';
 
 use PhpParser\ParserFactory;
 use PhpParser\NodeTraverser;
+use PhpParser\PrettyPrinter;
+use PhpParser\NodeDumper;
 
 ini_set('xdebug.max_nesting_level', 3000);
 
@@ -14,12 +16,14 @@ $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP5);
 try {
     $stmts = $parser->parse($contents);
 
-    $traverser = new NodeTraverser();
-    $traverser->addVisitor(new NodeVisitor);
-    $traverser->traverse($stmts);
+    // $traverser = new NodeTraverser();
+    // $traverser->addVisitor(new NodeVisitor);
+    // $traverser->traverse($stmts);
     // Output
-    // $prettyPrinter = new PhpParser\PrettyPrinter\Standard();
-    // echo $prettyPrinter->prettyPrintFile($stmts);
+    // $prettyPrinter = new PrettyPrinter\Standard();
+    // echo $prettyPrinter->prettyPrint($stmts);
+    $dumper = new NodeDumper();
+    echo $dumper->dump($stmts) . "\n";
 } catch(Error $e) {
     print($e->getMessage());
 }
